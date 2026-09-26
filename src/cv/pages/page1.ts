@@ -5,6 +5,7 @@ import { CvContentTitle } from "../cv-content-title";
 import { CvSectionItemData } from "../cv-content-section-item";
 import { CvContentSection } from "../cv-content-section";
 import { CvSidebarContact } from "../cv-sidebar-contact";
+import { CvSidebarSkills, SkillGroup } from "../cv-sidebar-skills";
 
 @Component({
     selector: "page1",
@@ -27,17 +28,18 @@ import { CvSidebarContact } from "../cv-sidebar-contact";
             linkedin="https://www.linkedin.com/in/emiluppenberg95"
             github="https://github.com/emiluppenberg"
             />
+            <cv-sidebar-skills [skillGroups]="skillGroups"/>
         </cv-sidebar>
     `,
     styles: `
-    :host {
-        display: grid;
-        grid-template-columns: 68% 32%;
-        width: 100%;
-        height: 100%;
-    }
+        :host {
+            display: grid;
+            grid-template-columns: 68% 32%;
+            width: 100%;
+            height: 100%;
+        }
     `,
-    imports: [CvContent, CvContentTitle, CvSidebar, CvContentSection, CvSidebarContact]
+    imports: [CvContent, CvContentTitle, CvSidebar, CvContentSection, CvSidebarContact, CvSidebarSkills]
 })
 export class Page1 {
     educationItems: CvSectionItemData[] = [
@@ -80,4 +82,62 @@ export class Page1 {
             paragraphLight: "augusti 2011 - juni 2014"
         }
     ]
+
+    skillGroups: SkillGroup[] = [
+        {
+            title: "Programmeringsspråk",
+            skills: [
+                "C#",
+                "TypeScript",
+                "SQL",
+                "HTML",
+                "CSS"
+            ]
+        },
+        {
+            title: "Tekniker",
+            skills: [
+                "Molntjänster",
+                "REST-API:er",
+                "MCP-server",
+                "Databaser",
+                "Versionshantering",
+                "SEO",
+                "Kravanalys",
+                "Testutveckling",
+                "Serverlösa funktioner"
+            ]
+        },
+        {
+            title: "Frontend",
+            skills: [
+                "React",
+                "Vue",
+                "Blazor",
+                "ASP.NET MVC",
+                ".NET MAUI",
+                "WPF"
+            ]
+        },
+        {
+            title: "Backend",
+            skills: [
+                "ASP.NET Core",
+                "Entity Framework Core",
+                "Node.js",
+                "WebSocket"
+            ]
+        },
+        {
+            title: "Övrigt",
+            skills: [
+                "Driven",
+                "Nyfiken",
+                "Kommunikativ",
+                "Samarbetsvillig",
+                "Engelska - flytande i tal och skrift"
+            ]
+        }
+    ]
+
 }
