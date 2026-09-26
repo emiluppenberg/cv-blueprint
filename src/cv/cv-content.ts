@@ -10,6 +10,7 @@ import { Component } from "@angular/core";
         display: flex;
         flex-direction: column;
         padding: 1em;
+        gap: 1em;
         background-color: var(--bg-content);
     }
     `

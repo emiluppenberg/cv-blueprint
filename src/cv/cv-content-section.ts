@@ -15,13 +15,14 @@ import { CvContentSectionItem, CvSectionItemData} from "./cv-content-section-ite
         }
     `,
     styles: `
+        :host {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+        
         h3 {
-            width: fit-content;
-            font-size: 2em;
-            font-weight: bold;
-            border-bottom: 0.1em solid var(--accent-content);
-            margin-top: 0;
-            margin-bottom: 0.5em;
+            border-bottom-color: var(--accent-content);
         }
     `,
     imports: [CvContentSectionItem]

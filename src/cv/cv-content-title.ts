@@ -11,8 +11,8 @@ import { Component, input } from "@angular/core";
             margin: 0;
         }
         h2 {
+            margin: 0;
             margin-left: 0.5em;
-            margin-top: 0;
         }
     `
 })

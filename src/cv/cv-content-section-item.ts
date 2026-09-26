@@ -61,6 +61,10 @@ export type CvSectionItemData = {
             border-left: 0.1em solid var(--accent-content);
             margin-left: 1em;
             padding-left: 1em;
+
+            ul {
+                margin-bottom: 1em;
+            }
         }
     `,
     imports: [Chevron]

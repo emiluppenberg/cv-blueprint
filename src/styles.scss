@@ -31,10 +31,23 @@
     display: block;
 }
 
+ul {
+    margin: 0;
+    padding-left: 2em;
+}
+
 a {
     color: white;
 }
 
 p {
     line-height: 1.6;
+}
+
+h3 {
+    width: fit-content;
+    font-size: 2em;
+    font-weight: bold;
+    border-bottom: 0.1em solid black;
+    margin: 0;
 }
