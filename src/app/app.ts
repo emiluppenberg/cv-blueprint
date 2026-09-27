@@ -83,6 +83,7 @@ export class App {
         y,
         imageWidth,
         imageHeight,
+        `cv-page-${i}`,
         "FAST"
       )
 
