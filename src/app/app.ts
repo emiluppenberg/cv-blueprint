@@ -42,18 +42,26 @@ export class App {
   }
 
   downloadPdf = async () => {
-    const cv = document.getElementById("cv")
+    if (this.cvService.cvPagesLength() === 0) return
 
-    if (cv) {
+    let cvs: HTMLElement[] = []
+
+    const doc = new jsPDF({
+      unit: "px",
+      format: "a4",
+      hotfixes: ["px_scaling"]
+    })
+
+    for (let i = 0; i < this.cvService.cvPagesLength(); i++) {
+      const cv = document.getElementById(`cv-${i}`)
+
+      if (!cv) {
+        throw new Error(`CV page ${i} was not found in the DOM`)
+      }
+
       const canvas = await html2canvas(cv, {
         scale: 1,
         backgroundColor: "#fff"
-      })
-
-      const doc = new jsPDF({
-        unit: "px",
-        format: "a4",
-        hotfixes: ["px_scaling"]
       })
 
       const pageWidth = doc.internal.pageSize.getWidth();
@@ -79,7 +87,14 @@ export class App {
         imageHeight,
       );
 
-      doc.save("cv.pdf")
+      if (i < this.cvService.cvPagesLength() - 1) {
+        doc.addPage(
+          "a4",
+          "portrait",
+        )
+      }
     }
+
+    doc.save("cv.pdf")
   }
 }

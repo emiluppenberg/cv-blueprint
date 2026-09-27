@@ -42,6 +42,7 @@ export class CvContainer {
         this.activatedRoute.params.subscribe(async (params) => {
                 const module = await import(`../cvs/${params["id"]}/index.ts`)
                 this.pages.set(module.pages)
+                this.cvService.cvPagesLength.set(module.pages.length)
         })
     }
 }
