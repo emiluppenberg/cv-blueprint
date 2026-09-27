@@ -5,7 +5,7 @@ import { CvContentTitle } from "../cv-content-title";
 import { ContentItemData, CvContentItem } from "../cv-content-item";
 import { CvSection } from "../cv-section";
 import { CvSidebarContact } from "../cv-sidebar-contact";
-import { CvSidebarSkills, SkillGroup } from "../cv-sidebar-skills";
+import { CvSidebarSkillGroup, SkillGroupData } from "../cv-sidebar-skill-group";
 
 @Component({
     selector: "page1",
@@ -14,9 +14,15 @@ import { CvSidebarSkills, SkillGroup } from "../cv-sidebar-skills";
             <cv-content-title
             name="Emil Uppenberg"
             title="Systemutvecklare"/>
-            <cv-content-section 
-            heading="Utbildning"
-            [sectionItems]="educationItems"/>
+            <cv-section
+            variant="content" 
+            heading="Utbildning">
+                @for (item of educationItems; track $index) {
+                    <cv-content-item 
+                    [item]="item"
+                    />
+                }
+            </cv-section>
         </cv-content>
         <cv-sidebar>
             <cv-sidebar-contact 
@@ -28,7 +34,14 @@ import { CvSidebarSkills, SkillGroup } from "../cv-sidebar-skills";
             linkedin="https://www.linkedin.com/in/emiluppenberg95"
             github="https://github.com/emiluppenberg"
             />
-            <cv-sidebar-skills [skillGroups]="skillGroups"/>
+            <cv-section
+            variant="sidebar"
+            heading="Kompetenser"
+            >
+                @for (skillGroup of skillGroups; track $index) {
+                    <cv-sidebar-skill-group [skillGroup]="skillGroup"/>
+                }
+            </cv-section>
         </cv-sidebar>
     `,
     styles: `
@@ -83,7 +96,7 @@ export class Page1 {
         }
     ]
 
-    skillGroups: SkillGroup[] = [
+    skillGroups: SkillGroupData[] = [
         {
             title: "Programmeringsspråk",
             skills: [
