@@ -2,8 +2,8 @@ import { Component } from "@angular/core";
 import { CvContent } from "../cv-content";
 import { CvSidebar } from "../cv-sidebar";
 import { CvContentTitle } from "../cv-content-title";
-import { CvSectionItemData } from "../cv-content-section-item";
-import { CvContentSection } from "../cv-content-section";
+import { ContentItemData, CvContentItem } from "../cv-content-item";
+import { CvSection } from "../cv-section";
 import { CvSidebarContact } from "../cv-sidebar-contact";
 import { CvSidebarSkills, SkillGroup } from "../cv-sidebar-skills";
 
@@ -39,10 +39,10 @@ import { CvSidebarSkills, SkillGroup } from "../cv-sidebar-skills";
             height: 100%;
         }
     `,
-    imports: [CvContent, CvContentTitle, CvSidebar, CvContentSection, CvSidebarContact, CvSidebarSkills]
+    imports: [CvContent, CvContentTitle, CvSidebar, CvSection, CvSidebarContact, CvSidebarSkillGroup, CvContentItem]
 })
 export class Page1 {
-    educationItems: CvSectionItemData[] = [
+    educationItems: ContentItemData[] = [
         {
             headings: [
                 "Systemutvecklare .NET",
