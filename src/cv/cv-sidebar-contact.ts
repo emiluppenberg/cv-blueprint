@@ -55,6 +55,10 @@ import { GitHub } from "../svg/github";
             display: flex;
             gap: 2em;
             align-items: center;
+
+            div > p {
+                color: white;
+            }
         }
     `,
     imports: [Home, Phone, Mail, LinkedIn, GitHub]

@@ -63,7 +63,7 @@ export class Page2 {
                 "XLENT Umeå AB"
             ],
             paragraphLight: "januari 2026 - april 2026",
-            content: "Under praktiken vidareutvecklade jag ett internt veckoplaneringssystem byggt med React 19, ASP.NET Core och SQL Server.",
+            content: "Under praktiken arbetade jag med React 19, ASP.NET Core och SQL Server för att vidareutveckla företagets interna veckoplaneringssystem.",
             contentBullets: [
                 "Genom att strukturera nycklarna i TanStack Query-cachen minskade jag React-klientens svarstider från sekunder till millisekunder.",
                 "Jag skapade automatiserade processer i Frends integreringsverktyg för att synkronisera applikationens databas med företagets tidsrapporteringssystem.",

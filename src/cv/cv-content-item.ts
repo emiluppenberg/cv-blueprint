@@ -27,7 +27,7 @@ export type ContentItemData = {
         </div>
 
         <div class="content">  
-            <p class="light">{{item().paragraphLight}}</p>
+            <div class="light">{{item().paragraphLight}}</div>
 
             @if (item().content) {
                 <p>{{item().content}}</p>
@@ -61,10 +61,18 @@ export type ContentItemData = {
             border-left: 0.1em solid var(--accent-content);
             margin-left: 1em;
             padding-left: 1em;
+            
+            ul {
+                margin-top: 0.5em;
+            }
 
             li {
                 margin-bottom: 0.5em;
             }
+        }
+
+        .emphasize {
+            line-height: 1.2;
         }
     `,
     imports: [Chevron]
