@@ -36,12 +36,13 @@ export type SidebarProjectData = {
             display: grid;
             grid-template-columns: 2em 1fr;
             align-items: center;
+            justify-items: start;
         }
         
         .content {
             border-left: 0.1em solid var(--accent-sidebar);
-            margin-left: 1em;
-            padding-left: 1em;
+            margin-left: 0.8em;
+            padding-left: 1.2em;
             
             li {
                 margin-bottom: 0.5em;
@@ -54,7 +55,7 @@ export type SidebarProjectData = {
 
         .description {
             font-size: 0.8em;
-            line-height: 1.6;
+            line-height: 1.4;
         }
     `,
     imports: [Chevron]

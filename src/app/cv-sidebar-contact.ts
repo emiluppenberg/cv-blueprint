@@ -63,6 +63,7 @@ export type ContactData = {
         }
 
         p {
+            font-size: 0.9em;
             margin: 0;
         }
 

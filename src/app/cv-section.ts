@@ -15,9 +15,10 @@ import { Component, input } from "@angular/core";
         }
         
         h3 {
-
+            font-size: 1.6em;
+            
             &.content {
-                border-bottom-color: var(--accent-content);
+                padding-left: 1.2em;
             }
 
             &.sidebar {

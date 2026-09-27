@@ -16,7 +16,9 @@ import { CvService } from "../services/cv-service";
     styles: `
         :host {
             display: flex;
-            gap: 10em;
+            gap: 8em;
+            font-family: 'Arial Narrow';
+            font-size: 1.2em;
         }
         
         h1 {

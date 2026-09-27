@@ -18,7 +18,7 @@ export type SkillGroupData = {
     `,
     styles: `
         :host {
-            padding-left: 1em;
+            padding-left: 0.5em;
         }
         
         h4 {

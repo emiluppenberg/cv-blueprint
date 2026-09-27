@@ -6,6 +6,6 @@ import {  DPI } from '../utilities/types';
   providedIn: 'root',
 })
 export class CvService {
-  dpi = signal<DPI>(dpi[72])
+  dpi = signal<DPI>(dpi[150])
   cvPagesLength = signal<number>(0)
 }

@@ -61,7 +61,8 @@ export type ContentItemData = {
             border-left: 0.1em solid var(--accent-content);
             margin-left: 1em;
             padding-left: 1em;
-            
+            font-size: 0.95em;
+
             ul {
                 margin-top: 0.5em;
             }
