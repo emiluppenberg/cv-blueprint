@@ -1,5 +1,5 @@
 import { DPI } from "./types";
-import { ContactData } from "../cv/cv-sidebar-contact";
+import { ContactData } from "../app/cv-sidebar-contact";
 
 export const dpi = {
     72: {

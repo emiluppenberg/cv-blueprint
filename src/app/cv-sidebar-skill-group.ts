@@ -32,8 +32,9 @@ export type SkillGroupData = {
         }
 
         li {
+            font-size: 0.8em;
             color: white;
-            line-height: 1.3;
+            line-height: 1.5;
         }
     `,
 })

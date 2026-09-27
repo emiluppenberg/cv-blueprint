@@ -1,15 +1,15 @@
 import { Component } from "@angular/core";
-import { CvContent } from "../cv-content";
-import { CvSidebar } from "../cv-sidebar";
-import { CvContentTitle } from "../cv-content-title";
-import { ContentItemData, CvContentItem } from "../cv-content-item";
-import { CvSection } from "../cv-section";
-import { CvSidebarContact } from "../cv-sidebar-contact";
-import { SidebarProjectData, CvSidebarProject } from "../cv-sidebar-project";
 import { contact } from "../../utilities/const";
+import { CvContent } from "../../app/cv-content";
+import { ContentItemData, CvContentItem } from "../../app/cv-content-item";
+import { CvContentTitle } from "../../app/cv-content-title";
+import { CvSection } from "../../app/cv-section";
+import { CvSidebar } from "../../app/cv-sidebar";
+import { CvSidebarContact } from "../../app/cv-sidebar-contact";
+import { CvSidebarProject, SidebarProjectData } from "../../app/cv-sidebar-project";
 
 @Component({
-    selector: "page2",
+    selector: "september2",
     template: `
         <cv-content>
             <cv-content-title
@@ -50,7 +50,7 @@ import { contact } from "../../utilities/const";
     `,
     imports: [CvContent, CvContentTitle, CvSidebar, CvSection, CvSidebarContact, CvContentItem, CvSidebarProject]
 })
-export class Page2 {
+export default class September2 {
     contact = contact
     
     internshipItems: ContentItemData[] = [
@@ -90,7 +90,7 @@ export class Page2 {
             
             url:    "jsonfn.com",
             tech: "Blazor",
-            content: "JSONfn är en webbapplikation framtagen för att automatisera delar av utvecklingsprocessen vid arbete med JSON-data från externa API:er. Användaren väljer nyckel-värde-par och applikationen konstruerar C# eller TypeScript typer utifrån urvalen."
+            content: "Webbapplikationen är framtagen för att automatisera delar av utvecklingsprocessen vid arbete med JSON-data från externa API:er. Användaren väljer nyckel-värde-par och applikationen konstruerar C# eller TypeScript typer utifrån urvalen."
         },
         {
             url:       "flyrep.org",
@@ -100,7 +100,7 @@ export class Page2 {
         {
             url: "beatdoc.netlify.app",
             tech: "React, Node.js",
-            content: "BeatDoc är en webbapplikation där användaren komponerar musik i ett sequencergränssnitt, antingen manuellt eller med hjälp av AI. AI-integrationen använder en Node.js-baserad MCP-server som kommunicerar med React-klienten i realtid via WebSocket."
+            content: "Webbapplikationen ger användaren ett sequencergränssnitt för att komponera musik, antingen manuellt eller med hjälp av AI. AI-integrationen använder en Node.js-baserad MCP-server som kommunicerar med React-klienten i realtid via WebSocket."
         }
     ]
 }

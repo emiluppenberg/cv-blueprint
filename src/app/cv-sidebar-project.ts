@@ -47,7 +47,7 @@ export type SidebarProjectData = {
                 margin-bottom: 0.5em;
             }
             
-            p, span {
+            p, span, .light {
                 color: white;
             }
         }

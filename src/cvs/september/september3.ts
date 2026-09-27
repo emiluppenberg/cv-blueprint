@@ -1,15 +1,15 @@
 import { Component } from "@angular/core";
-import { CvContent } from "../cv-content";
-import { CvSidebar } from "../cv-sidebar";
-import { CvContentTitle } from "../cv-content-title";
-import { ContentItemData, CvContentItem } from "../cv-content-item";
-import { CvSection } from "../cv-section";
-import { CvSidebarContact } from "../cv-sidebar-contact";
-import { SidebarReferenceData, CvSidebarReference } from "../cv-sidebar-reference";
 import { contact } from "../../utilities/const"
+import { CvContent } from "../../app/cv-content";
+import { ContentItemData, CvContentItem } from "../../app/cv-content-item";
+import { CvContentTitle } from "../../app/cv-content-title";
+import { CvSection } from "../../app/cv-section";
+import { CvSidebar } from "../../app/cv-sidebar";
+import { CvSidebarContact } from "../../app/cv-sidebar-contact";
+import { CvSidebarReference, SidebarReferenceData } from "../../app/cv-sidebar-reference";
 
 @Component({
-    selector: "page3",
+    selector: "september3",
     template: `
         <cv-content>
             <cv-content-title
@@ -48,7 +48,7 @@ import { contact } from "../../utilities/const"
     `,
     imports: [CvContent, CvContentTitle, CvSidebar, CvSection, CvSidebarContact, CvContentItem, CvSidebarReference]
 })
-export class Page3 {
+export default class September3 {
     contact = contact
     
     workItems: ContentItemData[] = [
