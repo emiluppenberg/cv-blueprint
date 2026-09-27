@@ -64,19 +64,19 @@ export class App {
         backgroundColor: "#fff"
       })
 
-      const pageWidth = doc.internal.pageSize.getWidth();
-      const pageHeight = doc.internal.pageSize.getHeight();
+      const pageWidth = doc.internal.pageSize.getWidth()
+      const pageHeight = doc.internal.pageSize.getHeight()
 
       const scale = Math.min(
         pageWidth / canvas.width,
         pageHeight / canvas.height,
-      );
+      )
 
-      const imageWidth = canvas.width * scale;
-      const imageHeight = canvas.height * scale;
+      const imageWidth = canvas.width * scale
+      const imageHeight = canvas.height * scale
 
-      const x = (pageWidth - imageWidth) / 2;
-      const y = (pageHeight - imageHeight) / 2;
+      const x = (pageWidth - imageWidth) / 2
+      const y = (pageHeight - imageHeight) / 2
 
       doc.addImage(
         canvas,
@@ -85,7 +85,23 @@ export class App {
         y,
         imageWidth,
         imageHeight,
-      );
+      )
+
+      const pageRect = cv.getBoundingClientRect()
+      const pdfScaleX = imageWidth / pageRect.width
+      const pdfScaleY = imageHeight / pageRect.height
+
+      for (const anchor of Array.from(cv.querySelectorAll<HTMLAnchorElement>('a[href]'))) {
+        for (const rect of Array.from(anchor.getClientRects())) {
+          doc.link(
+            x + (rect.left - pageRect.left) * pdfScaleX,
+            y + (rect.top - pageRect.top) * pdfScaleY,
+            rect.width * pdfScaleX,
+            rect.height * pdfScaleY,
+            { url: anchor.href },
+          )
+        }
+      }
 
       if (i < this.cvService.cvPagesLength() - 1) {
         doc.addPage(

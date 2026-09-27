@@ -33,17 +33,21 @@ export type SidebarReferenceData = {
 
         <div class="reference-grid">
             <mail />
-            <a [attr.href]="'mailto:' + reference().email">
-                <p>{{reference().email.split("@")[0]}}</p>
-                <p>@{{reference().email.split("@")[1]}}</p>
-            </a>
+            <div>
+                <p>
+                    <a [attr.href]="'mailto:' + reference().email">{{reference().email.split("@")[0]}}</a>
+                </p>
+                <p>
+                    <a [attr.href]="'mailto:' + reference().email">@{{reference().email.split("@")[1]}}</a>
+                </p>
+            </div>
         </div>
 
         <div class="reference-grid">
             <phone />
-            <a [attr.href]="'tel:+46' + reference().telephone.substring(1)">
-                <p>{{reference().telephone}}</p>
-            </a>
+            <p>
+                <a [attr.href]="'tel:+46' + reference().telephone.substring(1)">{{reference().telephone}}</a>
+            </p>
         </div>
     `,
     styles: `

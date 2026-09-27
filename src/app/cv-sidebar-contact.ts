@@ -27,10 +27,14 @@ export type ContactData = {
         </div>
         <div class="contact-row">
             <mail />            
-            <a [attr.href]="'mailto:' + contact().email">
-                <p>{{contact().email.split("@")[0]}}</p>
-                <p>@{{contact().email.split("@")[1]}}</p>
-            </a>
+            <div>
+                <p>
+                    <a [attr.href]="'mailto:' + contact().email">{{contact().email.split("@")[0]}}</a>
+                </p>
+                <p>
+                    <a [attr.href]="'mailto:' + contact().email">@{{contact().email.split("@")[1]}}</a>
+                </p>
+            </div>
         </div>
         <div class="contact-row">
             <phone />

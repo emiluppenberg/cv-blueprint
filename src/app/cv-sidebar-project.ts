@@ -12,9 +12,9 @@ export type SidebarProjectData = {
     template: `
         <div class="item-head">
             <chevron variant="sidebar" />
-            <a [attr.href]="'https://' + project().url">
-                <h4>{{project().url}}</h4>
-            </a>
+            <h4>
+                <a [attr.href]="'https://' + project().url">{{project().url}}</a>
+            </h4>
         </div>
 
         <div class="content">  
@@ -29,7 +29,7 @@ export type SidebarProjectData = {
         }
 
         a {
-            text-decoration-color: var(--accent-sidebar);
+            border-bottom-color: var(--accent-sidebar);
         }
         
         .item-head {
