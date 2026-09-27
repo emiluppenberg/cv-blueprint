@@ -1,7 +1,7 @@
 import { Component, input } from "@angular/core";
 import { Chevron } from "../svg/chevron";
 
-export type CvSectionItemData = {
+export type ContentItemData = {
     headings: string[]
     paragraphLight: string
     content?: string
@@ -10,14 +10,14 @@ export type CvSectionItemData = {
 }
 
 @Component({
-    selector: "cv-content-section-item",
+    selector: "cv-content-item",
     template: `
         <div class="item-head">
             <chevron variant="content" />
             
             <div class="headings">
-            @for (heading of headings(); track $index){
-                @if ($index === headings().length - 1) {
+            @for (heading of item().headings; track $index){
+                @if ($index === item().headings.length - 1) {
                     <h4 class="emphasize">{{heading}}</h4>
                 } @else {
                     <h4>{{heading}}</h4>
@@ -27,22 +27,22 @@ export type CvSectionItemData = {
         </div>
 
         <div class="content">  
-            <p class="light">{{paragraphLight()}}</p>
+            <div class="light">{{item().paragraphLight}}</div>
 
-            @if (content()) {
-                <p>{{content()}}</p>
+            @if (item().content) {
+                <p>{{item().content}}</p>
             }
 
-            @if (contentBullets()) {
+            @if (item().contentBullets) {
                 <ul>
-                @for (bullet of contentBullets(); track $index) {
+                @for (bullet of item().contentBullets; track $index) {
                     <li>{{bullet}}</li>
                 }
                 </ul>
             }
 
-            @if (emphasize()){
-                <p class="emphasize">{{emphasize()}}</p>
+            @if (item().emphasize){
+                <p class="emphasize">{{item().emphasize}}</p>
             }
         </div>
     `,
@@ -61,14 +61,22 @@ export type CvSectionItemData = {
             border-left: 0.1em solid var(--accent-content);
             margin-left: 1em;
             padding-left: 1em;
+            
+            ul {
+                margin-top: 0.5em;
+            }
+
+            li {
+                margin-bottom: 0.5em;
+            }
+        }
+
+        .emphasize {
+            line-height: 1.2;
         }
     `,
     imports: [Chevron]
 })
-export class CvContentSectionItem {
-    headings = input.required<string[]>()
-    paragraphLight = input.required<string>()
-    content = input<string>()
-    contentBullets = input<string[]>()
-    emphasize = input<string>()
+export class CvContentItem {
+    item = input.required<ContentItemData>()
 }

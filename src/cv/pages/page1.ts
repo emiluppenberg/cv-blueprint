@@ -2,9 +2,11 @@ import { Component } from "@angular/core";
 import { CvContent } from "../cv-content";
 import { CvSidebar } from "../cv-sidebar";
 import { CvContentTitle } from "../cv-content-title";
-import { CvSectionItemData } from "../cv-content-section-item";
-import { CvContentSection } from "../cv-content-section";
+import { ContentItemData, CvContentItem } from "../cv-content-item";
+import { CvSection } from "../cv-section";
 import { CvSidebarContact } from "../cv-sidebar-contact";
+import { CvSidebarSkillGroup, SkillGroupData } from "../cv-sidebar-skill-group";
+import { contact } from "../../utilities/const";
 
 @Component({
     selector: "page1",
@@ -13,34 +15,44 @@ import { CvSidebarContact } from "../cv-sidebar-contact";
             <cv-content-title
             name="Emil Uppenberg"
             title="Systemutvecklare"/>
-            <cv-content-section 
-            heading="Utbildning"
-            [sectionItems]="educationItems"/>
+            <cv-section
+            variant="content" 
+            heading="Utbildning">
+                @for (item of educationItems; track $index) {
+                    <cv-content-item 
+                    [item]="item"
+                    />
+                }
+            </cv-section>
         </cv-content>
         <cv-sidebar>
             <cv-sidebar-contact 
-            address="Tvistevägen 1B"
-            postalCode="907 29"
-            city="Umeå"
-            telephone="0790360480"
-            email="uppenberg95@gmail.com"
-            linkedin="https://www.linkedin.com/in/emiluppenberg95"
-            github="https://github.com/emiluppenberg"
+            [contact]="contact"
             />
+            <cv-section
+            variant="sidebar"
+            heading="Kompetenser"
+            >
+                @for (skillGroup of skillGroups; track $index) {
+                    <cv-sidebar-skill-group [skillGroup]="skillGroup"/>
+                }
+            </cv-section>
         </cv-sidebar>
     `,
     styles: `
-    :host {
-        display: grid;
-        grid-template-columns: 68% 32%;
-        width: 100%;
-        height: 100%;
-    }
+        :host {
+            display: grid;
+            grid-template-columns: 68% 32%;
+            width: 100%;
+            height: 100%;
+        }
     `,
-    imports: [CvContent, CvContentTitle, CvSidebar, CvContentSection, CvSidebarContact]
+    imports: [CvContent, CvContentTitle, CvSidebar, CvSection, CvSidebarContact, CvSidebarSkillGroup, CvContentItem]
 })
 export class Page1 {
-    educationItems: CvSectionItemData[] = [
+    contact = contact
+
+    educationItems: ContentItemData[] = [
         {
             headings: [
                 "Systemutvecklare .NET",
@@ -80,4 +92,62 @@ export class Page1 {
             paragraphLight: "augusti 2011 - juni 2014"
         }
     ]
+
+    skillGroups: SkillGroupData[] = [
+        {
+            title: "Programmeringsspråk",
+            skills: [
+                "C#",
+                "TypeScript",
+                "SQL",
+                "HTML",
+                "CSS"
+            ]
+        },
+        {
+            title: "Tekniker",
+            skills: [
+                "Molntjänster",
+                "REST-API:er",
+                "MCP-server",
+                "Databaser",
+                "Versionshantering",
+                "SEO",
+                "Kravanalys",
+                "Testutveckling",
+                "Serverlösa funktioner"
+            ]
+        },
+        {
+            title: "Frontend",
+            skills: [
+                "React",
+                "Vue",
+                "Blazor",
+                "ASP.NET MVC",
+                ".NET MAUI",
+                "WPF"
+            ]
+        },
+        {
+            title: "Backend",
+            skills: [
+                "ASP.NET Core",
+                "Entity Framework Core",
+                "Node.js",
+                "WebSocket"
+            ]
+        },
+        {
+            title: "Övrigt",
+            skills: [
+                "Driven",
+                "Nyfiken",
+                "Kommunikativ",
+                "Samarbetsvillig",
+                "Engelska - flytande i tal och skrift"
+            ]
+        }
+    ]
+
 }

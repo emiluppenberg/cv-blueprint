@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { RouterOutlet, RouterLinkWithHref } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 import { CvService } from '../services/cv-service';
@@ -7,22 +7,21 @@ import { dpi } from "../utilities/const"
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLinkWithHref],
+  imports: [RouterOutlet],
   template: `
       <header>
         <nav>
-          <a routerLink="/cv">CV</a>
+          <button (click)="downloadPdf()">PDF</button>
+          <select
+            aria-label="DPI"
+            [value]="cvService.dpi().dpi"
+            (change)="setDpi($event)"
+          >
+            @for (option of dpiOptions; track option.dpi) {
+              <option [value]="option.dpi">{{ option.dpi }} DPI</option>
+            }
+          </select>
         </nav>
-        <button (click)="downloadPdf()">PDF</button>
-        <select
-          aria-label="DPI"
-          [value]="cvService.dpi().dpi"
-          (change)="setDpi($event)"
-        >
-          @for (option of dpiOptions; track option.dpi) {
-            <option [value]="option.dpi">{{ option.dpi }} DPI</option>
-          }
-        </select>
       </header>
 
       <router-outlet />

@@ -3,8 +3,3 @@ export type DPI = {
     widthPx: number
     heightPx: number
 }
-
-export type CV = {
-    name: string
-    pagesHtml: string[] 
-}
