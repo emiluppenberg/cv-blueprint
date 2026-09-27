@@ -59,7 +59,7 @@ export default class September1 {
                 "400 YH-poäng",
                 "YrkesAkademin",
             ],
-            paragraphLight: "september 2024 - maj 2026",
+            paragraphLight: "september 2024—maj 2026",
             contentBullets: [
                 "Objektorienterad programmering med C#",
                 "Databasutveckling",
@@ -81,7 +81,7 @@ export default class September1 {
                 "30 hp",
                 "Umeå universitet",
             ],
-            paragraphLight: "januari 2018 - juni 2018",
+            paragraphLight: "januari 2018—juni 2018",
         },
         {
             headings: [
@@ -89,7 +89,7 @@ export default class September1 {
                 "2 500 poäng",
                 "Midgårdsskolan",
             ],
-            paragraphLight: "augusti 2011 - juni 2014"
+            paragraphLight: "augusti 2011—juni 2014"
         }
     ]
 

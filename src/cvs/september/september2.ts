@@ -59,7 +59,7 @@ export default class September2 {
                 "Fullstackutvecklare",
                 "XLENT Umeå AB"
             ],
-            paragraphLight: "januari 2026 - april 2026",
+            paragraphLight: "januari 2026—april 2026",
             content: "Under praktiken arbetade jag med React 19, ASP.NET Core och SQL Server för att vidareutveckla företagets interna veckoplaneringssystem.",
             contentBullets: [
                 "Genom att strukturera nycklarna i TanStack Query-cachen minskade jag React-klientens svarstider från sekunder till millisekunder.",
@@ -74,7 +74,7 @@ export default class September2 {
                 "Frontendutvecklare",
                 "Routined AB"
             ],
-            paragraphLight: "september 2025 - november 2025",
+            paragraphLight: "september 2025—november 2025",
             content: "Under praktiken arbetade jag med frontendutveckling av företagets Vue-baserade SaaS-plattform i ett agilt team med Kanban som arbetsmetod.",
             contentBullets: [
                 "Jag implementerade WYSIWYG-verktyget Tiptap i plattformen med ett skräddarsytt gränssnitt. Genom att samarbeta med en kollega som hade kunskap om plattformens befintliga WYSIWYG-verktyg CKEditor kunde vi säkerställa kompatibilitet mellan verktygen, så att dokument kunde redigeras i båda utan att formateringen gick förlorad eller orsakade fel.",
