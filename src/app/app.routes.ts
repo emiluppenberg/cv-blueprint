@@ -3,7 +3,7 @@ import { Cv } from '../cv/cv';
 
 export const routes: Routes = [
     {
-        path: "cv/:id",
+        path: ":id",
         component: Cv
     }
 ];
