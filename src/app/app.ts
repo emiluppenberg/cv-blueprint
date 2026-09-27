@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ActivatedRoute, RouterOutlet } from '@angular/router';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 import { CvService } from '../services/cv-service';
@@ -18,7 +18,7 @@ import { dpi } from "../utilities/const"
             (change)="setDpi($event)"
           >
             @for (option of dpiOptions; track option.dpi) {
-              <option [value]="option.dpi">{{ option.dpi }} DPI</option>
+              <option [value]="option.dpi" [selected]="option.dpi === 150">{{ option.dpi }} DPI</option>
             }
           </select>
         </nav>
@@ -43,8 +43,6 @@ export class App {
 
   downloadPdf = async () => {
     if (this.cvService.cvPagesLength() === 0) return
-
-    let cvs: HTMLElement[] = []
 
     const doc = new jsPDF({
       unit: "px",
@@ -85,6 +83,7 @@ export class App {
         y,
         imageWidth,
         imageHeight,
+        "FAST"
       )
 
       const pageRect = cv.getBoundingClientRect()
@@ -111,6 +110,7 @@ export class App {
       }
     }
 
-    doc.save("cv.pdf")
+    const name = window.location.pathname.substring(1)
+    doc.save(`cv-${name}.pdf`)
   }
 }
