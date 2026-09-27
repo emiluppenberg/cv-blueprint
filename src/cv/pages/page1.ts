@@ -6,6 +6,7 @@ import { ContentItemData, CvContentItem } from "../cv-content-item";
 import { CvSection } from "../cv-section";
 import { CvSidebarContact } from "../cv-sidebar-contact";
 import { CvSidebarSkillGroup, SkillGroupData } from "../cv-sidebar-skill-group";
+import { contact } from "../../utilities/const";
 
 @Component({
     selector: "page1",
@@ -26,13 +27,7 @@ import { CvSidebarSkillGroup, SkillGroupData } from "../cv-sidebar-skill-group";
         </cv-content>
         <cv-sidebar>
             <cv-sidebar-contact 
-            address="Tvistevägen 1B"
-            postalCode="907 29"
-            city="Umeå"
-            telephone="0790360480"
-            email="uppenberg95@gmail.com"
-            linkedin="https://www.linkedin.com/in/emiluppenberg95"
-            github="https://github.com/emiluppenberg"
+            [contact]="contact"
             />
             <cv-section
             variant="sidebar"
@@ -55,6 +50,8 @@ import { CvSidebarSkillGroup, SkillGroupData } from "../cv-sidebar-skill-group";
     imports: [CvContent, CvContentTitle, CvSidebar, CvSection, CvSidebarContact, CvSidebarSkillGroup, CvContentItem]
 })
 export class Page1 {
+    contact = contact
+
     educationItems: ContentItemData[] = [
         {
             headings: [

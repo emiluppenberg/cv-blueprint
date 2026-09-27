@@ -5,38 +5,49 @@ import { Mail } from "../svg/mail";
 import { LinkedIn } from "../svg/linkedin";
 import { GitHub } from "../svg/github";
 
+export type ContactData = {
+    address: string
+    postalCode: string
+    city: string
+    email: string
+    telephone: string
+    linkedin: string
+    github: string
+}
+
 @Component({
     selector: "cv-sidebar-contact",
     template: `
         <div class="contact-row">
             <home />
             <div>
-                <p>{{address()}}</p>
-                <p>{{postalCode()}} {{city()}}</p>
+                <p>{{contact().address}}</p>
+                <p>{{contact().postalCode}} {{contact().city}}</p>
             </div>
+        </div>
+        <div class="contact-row">
+            <mail />            
+            <a [attr.href]="'mailto:' + contact().email">
+                <p>{{contact().email.split("@")[0]}}</p>
+                <p>@{{contact().email.split("@")[1]}}</p>
+            </a>
         </div>
         <div class="contact-row">
             <phone />
             <p>
-                <a [attr.href]="'tel:+46' + telephone().substring(1)">{{telephone()}}</a>
-            </p>
-        </div>
-        <div class="contact-row">
-            <mail />
-            <p>
-                <a [attr.href]="'mailto:' + email()">{{email()}}</a>
+                <a [attr.href]="'tel:+46' + contact().telephone.substring(1)">{{contact().telephone}}</a>
             </p>
         </div>
         <div class="contact-row">
             <linkedin />
             <p>
-                <a [attr.href]="linkedin()">LinkedIn</a>
+                <a [attr.href]="contact().linkedin">LinkedIn</a>
             </p>
         </div>
         <div class="contact-row">
             <github />
             <p>
-                <a [attr.href]="github()">GitHub</a>
+                <a [attr.href]="contact().github">GitHub</a>
             </p>
         </div>
     `,
@@ -64,11 +75,5 @@ import { GitHub } from "../svg/github";
     imports: [Home, Phone, Mail, LinkedIn, GitHub]
 })
 export class CvSidebarContact{
-    address = input.required<string>()
-    postalCode = input.required<string>()
-    city = input.required<string>()
-    telephone = input.required<string>()
-    email = input.required<string>()
-    linkedin = input.required<string>()
-    github = input.required<string>()
+    contact = input.required<ContactData>()
 }

@@ -1,5 +1,5 @@
-import { TemplateRef } from "@angular/core";
 import { DPI } from "./types";
+import { ContactData } from "../cv/cv-sidebar-contact";
 
 export const dpi = {
     72: {
@@ -34,4 +34,14 @@ export const colors = {
     accentSidebar: "#c9f0ea",
     bgContent: "#e4f6ff",
     bgSidebar: "163a59",
+}
+
+export const contact: ContactData = {
+            address: "Tvistevägen 1B",
+            postalCode: "907 29",
+            city: "Umeå",
+            telephone: "0790360480",
+            email: "uppenberg95@gmail.com",
+            linkedin: "https://www.linkedin.com/in/emiluppenberg95",
+            github: "https://github.com/emiluppenberg",
 }
