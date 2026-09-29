@@ -12,7 +12,7 @@ export type ContactData = {
     email: string
     telephone: string
     linkedin: string
-    github: string
+    github?: string
 }
 
 @Component({
@@ -48,12 +48,14 @@ export type ContactData = {
                 <a [attr.href]="contact().linkedin">LinkedIn</a>
             </p>
         </div>
-        <div class="contact-row">
-            <github />
-            <p>
-                <a [attr.href]="contact().github">GitHub</a>
-            </p>
-        </div>
+        @if (contact().github) {
+            <div class="contact-row">
+                <github />
+                <p>
+                    <a [attr.href]="contact().github">GitHub</a>
+                </p>
+            </div>
+        }
     `,
     styles: `
         :host {

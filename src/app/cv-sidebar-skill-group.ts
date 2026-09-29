@@ -2,7 +2,7 @@ import { Component, input } from "@angular/core"
 
 export type SkillGroupData = {
     title: string
-    skills: string[]
+    skills?: string[]
 }
 
 @Component({
@@ -10,11 +10,13 @@ export type SkillGroupData = {
     template: `      
         <h4>{{skillGroup().title}}</h4>
 
-        <ul>
-        @for (skill of skillGroup().skills; track $index) {
-            <li>{{skill}}</li>
+        @if (skillGroup().skills) {
+            <ul>
+                @for (skill of skillGroup().skills; track $index) {
+                    <li>{{skill}}</li>
+                }
+            </ul>
         }
-        </ul>
     `,
     styles: `
         :host {
