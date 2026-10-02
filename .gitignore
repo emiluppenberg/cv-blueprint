@@ -42,7 +42,6 @@ __screenshots__/
 # My cv stuff
 /public/bild.png
 /src/cvs/*
-/src/my-cvs-data
 
 # Keep example
 !/src/cvs/example
