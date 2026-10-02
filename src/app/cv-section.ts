@@ -5,10 +5,14 @@ import { Component, input } from "@angular/core";
     template: `
         <h3 [class]="variant()">{{heading()}}</h3>
 
-        <ng-content />
+        <div 
+        class="section"
+        [style.gap.em]="gap()">
+            <ng-content />
+        </div>
     `,
     styles: `
-        :host {
+        .section {
             display: flex;
             flex-direction: column;
             gap: 1em;
@@ -16,7 +20,8 @@ import { Component, input } from "@angular/core";
         
         h3 {
             font-size: 1.6em;
-            
+            margin-bottom: 0.5em;
+
             &.content {
                 padding-left: 1.2em;
             }
@@ -32,4 +37,5 @@ import { Component, input } from "@angular/core";
 export class CvSection{
     heading = input.required<string>()
     variant = input.required<"content" |"sidebar">()
+    gap = input<number>()
 }
