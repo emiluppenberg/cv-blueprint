@@ -13,6 +13,7 @@ export type ContactData = {
     telephone: string
     linkedin: string
     github?: string
+    additional?: string
 }
 
 @Component({
@@ -56,6 +57,13 @@ export type ContactData = {
                 </p>
             </div>
         }
+        @if (contact().additional) {
+            <div class="contact-row">
+                <p class="bold">
+                    {{contact().additional}}
+                </p>
+            </div>
+        }
     `,
     styles: `
         :host {
@@ -67,6 +75,14 @@ export type ContactData = {
         p {
             font-size: 0.9em;
             margin: 0;
+
+            &.bold {
+                width: 100%;
+                text-align: center;
+                color: white;
+                font-weight: 700;
+                margin-top: 0.5em;
+            }
         }
 
         .contact-row {
@@ -77,6 +93,7 @@ export type ContactData = {
             div > p {
                 color: white;
             }
+
         }
     `,
     imports: [Home, Phone, Mail, LinkedIn, GitHub]
