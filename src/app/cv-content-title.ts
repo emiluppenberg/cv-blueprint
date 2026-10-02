@@ -1,24 +1,43 @@
 import { Component, inject, input } from "@angular/core";
 import { CvService } from "../services/cv-service";
 
+export type TitleData = {
+    name: string
+    title: string
+    summary?: string
+}
+
 @Component({
     selector: "cv-content-title",
     template: `
-    <div>
-        <h1>{{name()}}</h1>
-        <h2>{{title()}}</h2>
+    <div class="top">
+        <div>
+            <h1>{{data().name}}</h1>
+            <h2>{{data().title}}</h2>
+        </div>
+        
+        <div class="img-container">
+            <img src="bild.png"/>
+        </div>
     </div>
 
-    <div class="img-container">
-        <img src="bild.png"/>
-    </div>
+    @if (data().summary) {
+        <p>
+            {{data().summary}}
+        </p>
+    }
+    
     `,
     styles: `
         :host {
             display: flex;
-            gap: 8em;
+            flex-direction: column;
             font-family: 'Arial Narrow';
             font-size: 1.2em;
+        }
+
+        .top {
+            display: flex;
         }
         
         h1 {
@@ -30,19 +49,26 @@ import { CvService } from "../services/cv-service";
             margin-left: 0.5em;
         }
 
+        p {
+            margin: 0;
+            font-size: 0.7em;
+        }
+
         .img-container {
             position: relative;
+            margin-left: 0.5em;
+            margin-top: -0.5em;
 
             img {
                 position: absolute;
-                width: calc(80px * var(--dpi-scale));
+                width: calc(60px * var(--dpi-scale));
                 height: auto;
             }
         }
     `
 })
 export class CvContentTitle {
-    name = input.required<string>()
-    title = input.required<string>()
+    data = input.required<TitleData>()
+
     public readonly cvService = inject(CvService)
 }
