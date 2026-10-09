@@ -40,7 +40,8 @@ testem.log
 __screenshots__/
 
 # My cv stuff
-/public/bild.png
+/public/bild1.png
+/public/bild2.png
 /src/cvs/*
 
 # Keep example

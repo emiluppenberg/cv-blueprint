@@ -30,7 +30,7 @@ export const dpi = {
 
 export const colors = {
     accentContent: "#056063",
-    accentSidebar: "#c9f0ea",
+    accentSidebar: "#ffffff",
     bgContent: "#e4f6ff",
     bgSidebar: "163a59",
 }
