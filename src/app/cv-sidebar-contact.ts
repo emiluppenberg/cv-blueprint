@@ -4,6 +4,7 @@ import { Phone } from "../svg/phone";
 import { Mail } from "../svg/mail";
 import { LinkedIn } from "../svg/linkedin";
 import { GitHub } from "../svg/github";
+import { Portfolio } from "../svg/portfolio";
 
 export type ContactData = {
     address: string
@@ -14,6 +15,7 @@ export type ContactData = {
     linkedin: string
     github?: string
     additional?: string
+    portfolio?: string
 }
 
 @Component({
@@ -57,6 +59,14 @@ export type ContactData = {
                 </p>
             </div>
         }
+        @if (contact().portfolio) {
+            <div class="contact-row">
+                <portfolio />
+                <p>
+                    <a [attr.href]="contact().portfolio">Portfolio</a>
+                </p>
+            </div>
+        }
         @if (contact().additional) {
             <div class="contact-row">
                 <p class="bold">
@@ -96,7 +106,7 @@ export type ContactData = {
 
         }
     `,
-    imports: [Home, Phone, Mail, LinkedIn, GitHub]
+    imports: [Home, Phone, Mail, LinkedIn, GitHub, Portfolio]
 })
 export class CvSidebarContact{
     contact = input.required<ContactData>()
