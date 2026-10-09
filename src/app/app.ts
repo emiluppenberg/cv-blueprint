@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { ActivatedRoute, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 import { CvService } from '../services/cv-service';
@@ -18,7 +18,7 @@ import { dpi } from "../utilities/const"
             (change)="setDpi($event)"
           >
             @for (option of dpiOptions; track option.dpi) {
-              <option [value]="option.dpi" [selected]="option.dpi === 150">{{ option.dpi }} DPI</option>
+              <option [value]="option.dpi" [selected]="option.dpi === 72">{{ option.dpi }} DPI</option>
             }
           </select>
         </nav>
