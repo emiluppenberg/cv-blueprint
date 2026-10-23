@@ -1,6 +1,6 @@
 import { Component, input } from "@angular/core"
 
-export type SkillGroupData = {
+export type CvSkillGroupData = {
     title: string
     skills?: string[]
 }
@@ -41,5 +41,5 @@ export type SkillGroupData = {
     `,
 })
 export class CvSidebarSkillGroup {
-    skillGroup = input.required<SkillGroupData>()
+    skillGroup = input.required<CvSkillGroupData>()
 }

@@ -1,7 +1,7 @@
 import { Component, input } from "@angular/core";
 import { Chevron } from "../../svg/chevron";
 
-export type SidebarProjectData = {
+export type CvProjectData = {
     url: string
     tech: string
     content: string
@@ -61,5 +61,5 @@ export type SidebarProjectData = {
     imports: [Chevron]
 })
 export class CvSidebarProject {
-    project = input.required<SidebarProjectData>()
+    project = input.required<CvProjectData>()
 }

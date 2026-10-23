@@ -2,7 +2,7 @@ import { Component, input } from "@angular/core";
 import { Mail } from "../../svg/mail";
 import { Phone } from "../../svg/phone";
 
-export type SidebarReferenceData = {
+export type CvReferenceData = {
     name: string
     role: string
     company: string
@@ -79,5 +79,5 @@ export type SidebarReferenceData = {
     imports: [Mail, Phone],
 })
 export class CvSidebarReference {
-    reference = input.required<SidebarReferenceData>()
+    reference = input.required<CvReferenceData>()
 }

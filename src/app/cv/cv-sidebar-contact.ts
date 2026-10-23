@@ -6,7 +6,7 @@ import { LinkedIn } from "../../svg/linkedin";
 import { GitHub } from "../../svg/github";
 import { Portfolio } from "../../svg/portfolio";
 
-export type ContactData = {
+export type CvContactData = {
     address: string
     postalCode: string
     city: string
@@ -109,5 +109,5 @@ export type ContactData = {
     imports: [Home, Phone, Mail, LinkedIn, GitHub, Portfolio]
 })
 export class CvSidebarContact{
-    contact = input.required<ContactData>()
+    contact = input.required<CvContactData>()
 }

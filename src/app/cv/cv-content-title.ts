@@ -1,6 +1,6 @@
 import { Component, input } from "@angular/core";
 
-export type TitleData = {
+export type CvTitleData = {
     name: string
     title: string
     summary: string
@@ -68,5 +68,5 @@ export type TitleData = {
     `
 })
 export class CvContentTitle {
-    data = input.required<TitleData>()
+    data = input.required<CvTitleData>()
 }

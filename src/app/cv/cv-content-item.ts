@@ -1,7 +1,7 @@
 import { Component, input } from "@angular/core";
 import { Chevron } from "../../svg/chevron";
 
-export type ContentItemData = {
+export type CvContentItemData = {
     headings: string[]
     paragraphLight: string
     content?: string
@@ -79,5 +79,5 @@ export type ContentItemData = {
     imports: [Chevron]
 })
 export class CvContentItem {
-    item = input.required<ContentItemData>()
+    item = input.required<CvContentItemData>()
 }
