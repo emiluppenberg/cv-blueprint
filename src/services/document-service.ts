@@ -5,7 +5,7 @@ import {  DPI } from '../utilities/types';
 @Injectable({
   providedIn: 'root',
 })
-export class CvService {
+export class DocumentService {
   dpi = signal<DPI>(dpi[72])
-  cvPagesLength = signal<number>(0)
+  pagesCount = signal<number>(0)
 }

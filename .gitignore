@@ -42,11 +42,11 @@ __screenshots__/
 # My cv stuff
 /public/bild1.png
 /public/bild2.png
-/src/cvs/*
+/src/documents/*
 
 # Keep example
-!/src/cvs/example
-!/src/cvs/example/**
+!/src/documents/example
+!/src/documents/example/**
 
 # System files
 .DS_Store

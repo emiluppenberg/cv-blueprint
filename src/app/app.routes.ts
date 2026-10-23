@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { CvContainer } from './cv-container';
+import { DocumentContainer } from './document-container';
 
 export const routes: Routes = [
     {
         path: ":id",
-        component: CvContainer
+        component: DocumentContainer
     }
 ];

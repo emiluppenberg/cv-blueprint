@@ -1,5 +1,5 @@
 import { Component, input } from "@angular/core";
-import { Chevron } from "../svg/chevron";
+import { Chevron } from "../../svg/chevron";
 
 export type SidebarProjectData = {
     url: string

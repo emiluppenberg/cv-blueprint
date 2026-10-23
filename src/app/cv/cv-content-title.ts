@@ -1,5 +1,4 @@
-import { Component, inject, input } from "@angular/core";
-import { CvService } from "../services/cv-service";
+import { Component, input } from "@angular/core";
 
 export type TitleData = {
     name: string
@@ -70,6 +69,4 @@ export type TitleData = {
 })
 export class CvContentTitle {
     data = input.required<TitleData>()
-
-    public readonly cvService = inject(CvService)
 }

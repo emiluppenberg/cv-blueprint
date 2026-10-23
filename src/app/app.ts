@@ -2,7 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
-import { CvService } from '../services/cv-service';
+import { DocumentService } from '../services/document-service';
 import { dpi } from "../utilities/const"
 
 @Component({
@@ -14,7 +14,7 @@ import { dpi } from "../utilities/const"
           <button (click)="downloadPdf()">PDF</button>
           <select
             aria-label="DPI"
-            [value]="cvService.dpi().dpi"
+            [value]="documentService.dpi().dpi"
             (change)="setDpi($event)"
           >
             @for (option of dpiOptions; track option.dpi) {
@@ -28,8 +28,7 @@ import { dpi } from "../utilities/const"
 `,
 })
 export class App {
-  protected readonly title = signal('cv-ang');
-  protected cvService = inject(CvService)
+  protected documentService = inject(DocumentService)
   protected readonly dpiOptions = Object.values(dpi)
 
   protected setDpi(event: Event) {
@@ -37,33 +36,33 @@ export class App {
     const option = this.dpiOptions.find(({ dpi }) => dpi === selectedDpi)
 
     if (option) {
-      this.cvService.dpi.set(option)
+      this.documentService.dpi.set(option)
     }
   }
 
   downloadPdf = async () => {
-    if (this.cvService.cvPagesLength() === 0) return
+    if (this.documentService.pagesCount() === 0) return
 
-    const doc = new jsPDF({
+    const pdf = new jsPDF({
       unit: "px",
       format: "a4",
       hotfixes: ["px_scaling"]
     })
 
-    for (let i = 0; i < this.cvService.cvPagesLength(); i++) {
-      const cv = document.getElementById(`cv-${i}`)
+    for (let i = 0; i < this.documentService.pagesCount(); i++) {
+      const doc = document.getElementById(`document-${i}`)
 
-      if (!cv) {
-        throw new Error(`CV page ${i} was not found in the DOM`)
+      if (!doc) {
+        throw new Error(`Document page ${i} was not found in the DOM`)
       }
 
-      const canvas = await html2canvas(cv, {
+      const canvas = await html2canvas(doc, {
         scale: 1,
         backgroundColor: "#fff"
       })
 
-      const pageWidth = doc.internal.pageSize.getWidth()
-      const pageHeight = doc.internal.pageSize.getHeight()
+      const pageWidth = pdf.internal.pageSize.getWidth()
+      const pageHeight = pdf.internal.pageSize.getHeight()
 
       const scale = Math.min(
         pageWidth / canvas.width,
@@ -76,24 +75,24 @@ export class App {
       const x = (pageWidth - imageWidth) / 2
       const y = (pageHeight - imageHeight) / 2
 
-      doc.addImage(
+      pdf.addImage(
         canvas,
         "PNG",
         x,
         y,
         imageWidth,
         imageHeight,
-        `cv-page-${i}`,
+        `document-page-${i}`,
         "FAST"
       )
 
-      const pageRect = cv.getBoundingClientRect()
+      const pageRect = doc.getBoundingClientRect()
       const pdfScaleX = imageWidth / pageRect.width
       const pdfScaleY = imageHeight / pageRect.height
 
-      for (const anchor of Array.from(cv.querySelectorAll<HTMLAnchorElement>('a[href]'))) {
+      for (const anchor of Array.from(doc.querySelectorAll<HTMLAnchorElement>('a[href]'))) {
         for (const rect of Array.from(anchor.getClientRects())) {
-          doc.link(
+          pdf.link(
             x + (rect.left - pageRect.left) * pdfScaleX,
             y + (rect.top - pageRect.top) * pdfScaleY,
             rect.width * pdfScaleX,
@@ -103,8 +102,8 @@ export class App {
         }
       }
 
-      if (i < this.cvService.cvPagesLength() - 1) {
-        doc.addPage(
+      if (i < this.documentService.pagesCount() - 1) {
+        pdf.addPage(
           "a4",
           "portrait",
         )
@@ -112,6 +111,6 @@ export class App {
     }
 
     const name = window.location.pathname.substring(1)
-    doc.save(`cv-${name}.pdf`)
+    pdf.save(`${name}.pdf`)
   }
 }

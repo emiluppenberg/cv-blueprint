@@ -1,10 +1,10 @@
 import { Component, input } from "@angular/core";
-import { Home } from "../svg/home";
-import { Phone } from "../svg/phone";
-import { Mail } from "../svg/mail";
-import { LinkedIn } from "../svg/linkedin";
-import { GitHub } from "../svg/github";
-import { Portfolio } from "../svg/portfolio";
+import { Home } from "../../svg/home";
+import { Phone } from "../../svg/phone";
+import { Mail } from "../../svg/mail";
+import { LinkedIn } from "../../svg/linkedin";
+import { GitHub } from "../../svg/github";
+import { Portfolio } from "../../svg/portfolio";
 
 export type ContactData = {
     address: string

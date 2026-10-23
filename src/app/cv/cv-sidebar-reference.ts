@@ -1,6 +1,6 @@
 import { Component, input } from "@angular/core";
-import { Mail } from "../svg/mail";
-import { Phone } from "../svg/phone";
+import { Mail } from "../../svg/mail";
+import { Phone } from "../../svg/phone";
 
 export type SidebarReferenceData = {
     name: string
