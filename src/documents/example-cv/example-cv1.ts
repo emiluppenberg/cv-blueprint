@@ -49,7 +49,7 @@ import { contact, educationItems, skillGroups, title } from "./data";
     `,
     imports: [CvContent, CvContentTitle, CvSidebar, CvSection, CvSidebarContact, CvSidebarSkillGroup, CvContentItem]
 })
-export default class Example1 {
+export default class ExampleCv1 {
     title = title
     contact = contact
     educationItems = educationItems

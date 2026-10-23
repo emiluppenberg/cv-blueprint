@@ -45,8 +45,8 @@ __screenshots__/
 /src/documents/*
 
 # Keep example
-!/src/documents/example
-!/src/documents/example/**
+!/src/documents/example-cv
+!/src/documents/example-cv/**
 
 # System files
 .DS_Store

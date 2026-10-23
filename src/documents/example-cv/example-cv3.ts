@@ -48,7 +48,7 @@ import { contact, references, title, workItems } from "./data";
     `,
     imports: [CvContent, CvContentTitle, CvSidebar, CvSection, CvSidebarContact, CvContentItem, CvSidebarReference]
 })
-export default class Example3 {
+export default class ExampleCv3 {
     title = title
     contact = contact
     workItems = workItems

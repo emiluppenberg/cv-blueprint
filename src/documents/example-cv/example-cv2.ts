@@ -50,7 +50,7 @@ import { contact, internshipItems, projects, title } from "./data";
     `,
     imports: [CvContent, CvContentTitle, CvSidebar, CvSection, CvSidebarContact, CvContentItem, CvSidebarProject]
 })
-export default class Example2 {
+export default class ExampleCv2 {
     title = title
     contact = contact
     internshipItems = internshipItems

@@ -1,18 +1,18 @@
-import { ContentItemData } from "../../app/cv/cv-content-item";
-import { TitleData } from "../../app/cv/cv-content-title";
-import { ContactData } from "../../app/cv/cv-sidebar-contact";
-import { SidebarProjectData } from "../../app/cv/cv-sidebar-project";
-import { SidebarReferenceData } from "../../app/cv/cv-sidebar-reference";
-import { SkillGroupData } from "../../app/cv/cv-sidebar-skill-group";
+import { CvContentItemData } from "../../app/cv/cv-content-item";
+import { CvTitleData } from "../../app/cv/cv-content-title";
+import { CvContactData } from "../../app/cv/cv-sidebar-contact";
+import { CvProjectData } from "../../app/cv/cv-sidebar-project";
+import { CvReferenceData } from "../../app/cv/cv-sidebar-reference";
+import { CvSkillGroupData } from "../../app/cv/cv-sidebar-skill-group";
 
-export const title: TitleData = {
+export const title: CvTitleData = {
     name: "Alex Exempel",
     title: "Systemutvecklare",
     summary: "Nyfiken systemutvecklare som skapar tydliga gränssnitt och hållbara lösningar.",
     imagePath: "/example.jpg"
 }
 
-export const contact: ContactData = {
+export const contact: CvContactData = {
     address: "Exempelgatan 12",
     postalCode: "123 45",
     city: "Exempelstad",
@@ -24,7 +24,7 @@ export const contact: ContactData = {
     additional: "Öppen för nya möjligheter",
 }
 
-export const skillGroups: SkillGroupData[] = [
+export const skillGroups: CvSkillGroupData[] = [
     {
         title: "Programmeringsspråk",
         skills: ["C#", "SQL", "TypeScript"]
@@ -65,7 +65,7 @@ export const skillGroups: SkillGroupData[] = [
     }
 ]
 
-export const references: SidebarReferenceData[] = [
+export const references: CvReferenceData[] = [
     {
         name: "Kim Exempelsson",
         role: "Teamledare",
@@ -92,7 +92,7 @@ export const references: SidebarReferenceData[] = [
     }
 ]
 
-export const projects: SidebarProjectData[] = [
+export const projects: CvProjectData[] = [
     {
         url: "example.com/planering",
         tech: "Angular, ASP.NET Core, SQL Server",
@@ -110,7 +110,7 @@ export const projects: SidebarProjectData[] = [
     }
 ]
 
-export const educationItems: ContentItemData[] = [
+export const educationItems: CvContentItemData[] = [
     {
         headings: ["Systemutvecklare .NET", "400 YH-poäng", "Exempelakademin"],
         paragraphLight: "september 2024—maj 2026",
@@ -151,7 +151,7 @@ export const educationItems: ContentItemData[] = [
     }
 ]
 
-export const internshipItems: ContentItemData[] = [
+export const internshipItems: CvContentItemData[] = [
     {
         headings: ["Fullstackutvecklare", "Demolösningar AB"],
         paragraphLight: "januari 2026—april 2026",
@@ -179,7 +179,7 @@ export const internshipItems: ContentItemData[] = [
     }
 ]
 
-export const workItems: ContentItemData[] = [
+export const workItems: CvContentItemData[] = [
     {
         headings: ["Butiksmedarbetare", "Exempelbutiken AB"],
         paragraphLight: "juni 2026—augusti 2026",
