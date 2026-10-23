@@ -4,7 +4,8 @@ import { CvService } from "../services/cv-service";
 export type TitleData = {
     name: string
     title: string
-    summary?: string
+    summary: string
+    imagePath: string
 }
 
 @Component({
@@ -17,11 +18,11 @@ export type TitleData = {
         </div>
         
         <div class="img-container">
-            <img src="bild.png"/>
+            <img [src]="data().imagePath"/>
         </div>
     </div>
 
-    @if (data().summary) {
+    @if (data().summary.length > 0) {
         <p>
             {{data().summary}}
         </p>
