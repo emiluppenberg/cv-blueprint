@@ -6,6 +6,6 @@ import {  DPI } from '../utilities/types';
   providedIn: 'root',
 })
 export class DocumentService {
-  dpi = signal<DPI>(dpi[72])
+  dpi = signal<DPI>(dpi[96])
   pagesCount = signal<number>(0)
 }

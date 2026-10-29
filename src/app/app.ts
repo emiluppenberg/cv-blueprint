@@ -18,7 +18,7 @@ import { dpi } from "../utilities/const"
             (change)="setDpi($event)"
           >
             @for (option of dpiOptions; track option.dpi) {
-              <option [value]="option.dpi" [selected]="option.dpi === 72">{{ option.dpi }} DPI</option>
+              <option [value]="option.dpi" [selected]="option.dpi === 96">{{ option.dpi }} DPI</option>
             }
           </select>
         </nav>
